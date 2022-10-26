@@ -1,0 +1,31 @@
+@import "../../styles/variable.scss";
+
+.header {
+    background-color: $main-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 32px;
+    }
+
+    &__block {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+    }
+
+    &__icon {}
+
+    &__text {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: $white;
+    }
+}
