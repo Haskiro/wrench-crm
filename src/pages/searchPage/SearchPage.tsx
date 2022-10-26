@@ -1,16 +1,23 @@
-import useApiService from '../../services/apiService';
 import "./SearchPage.scss";
-import { useEffect } from "react";
+import SearchForm from './components/searchForm';
+import AddressList from './components/addressList';
+import { useState } from 'react';
 
 const SearchPage = (): JSX.Element => {
-    const { getAddresses } = useApiService();
+    const [query, setQuery] = useState('');
 
-    useEffect(() => {
-        getAddresses("Москва")
-            .then(data => console.log(data));
-    }, [])
+    const onChangeQuery = (query: string) => {
+        setQuery(query);
+    }
 
-    return <>Search Page</>
+    return (
+        <div className='search'>
+            <p className="search__heading">Поиск адресов</p>
+            <p className="search__text">Введите интересующий вас адрес</p>
+            <SearchForm onChange={onChangeQuery} />
+            <AddressList query={query} />
+        </div>
+    )
 }
 
 export default SearchPage;

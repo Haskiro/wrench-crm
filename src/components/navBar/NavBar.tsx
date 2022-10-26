@@ -17,6 +17,7 @@ const NavBar = (): JSX.Element => {
             <ul className="nav__list">
                 <li className="nav__item">
                     <NavLink
+                        end
                         to="/"
                         className={({ isActive }) =>
                             isActive
@@ -44,6 +45,7 @@ const NavBar = (): JSX.Element => {
                             <SearchIcon />
                         </div>
                         <p className="nav__text">Поиск адресов</p>
+                        <span className='nav__stick' />
                     </NavLink>
                 </li>
                 <li className="nav__item">
@@ -59,6 +61,7 @@ const NavBar = (): JSX.Element => {
                             <TablesIcon />
                         </div>
                         <p className="nav__text">Таблицы</p>
+                        <span className='nav__stick' />
                     </NavLink>
                 </li>
                 <li className="nav__item">
@@ -74,6 +77,7 @@ const NavBar = (): JSX.Element => {
                             <CalendarIcon />
                         </div>
                         <p className="nav__text">Календарь</p>
+                        <span className='nav__stick' />
                     </NavLink>
                 </li>
                 <li className="nav__item">
@@ -89,6 +93,7 @@ const NavBar = (): JSX.Element => {
                             <MapIcon />
                         </div>
                         <p className="nav__text">Карты</p>
+                        <span className='nav__stick' />
                     </NavLink>
                 </li>
                 <li className="nav__item">
@@ -104,6 +109,7 @@ const NavBar = (): JSX.Element => {
                             <VidgetsIcon />
                         </div>
                         <p className="nav__text">Виджеты</p>
+                        <span className='nav__stick' />
                     </NavLink>
                 </li>
                 <li className="nav__item">
@@ -111,6 +117,12 @@ const NavBar = (): JSX.Element => {
                         className="nav__dropdown dropdown"
                         onClick={toggleDropdown}
                         ref={el => ref.current = el}
+                        tabIndex={0}
+                        onKeyPress={(e) => {
+                            if (e.key === ' ' || e.key === "Enter") {
+                                toggleDropdown();
+                            }
+                        }}
                     >
                         <div className="nav__icon">
                             <SettingsIcon />
@@ -133,6 +145,7 @@ const NavBar = (): JSX.Element => {
                                         <ProfileSettingsIcon />
                                     </div>
                                     <p className="nav__text">Настройки профиля</p>
+                                    <span className='nav__stick' />
                                 </NavLink>
                             </li>
                             <li className="dropdown__item">
@@ -148,6 +161,7 @@ const NavBar = (): JSX.Element => {
                                         <FinanceManagmentIcon />
                                     </div>
                                     <p className="nav__text">Управление финансами</p>
+                                    <span className='nav__stick' />
                                 </NavLink>
                             </li>
                         </ul>
@@ -166,6 +180,7 @@ const NavBar = (): JSX.Element => {
                             <ExitIcon />
                         </div>
                         <p className="nav__text">Выход</p>
+                        <span className='nav__stick' />
                     </NavLink>
                 </li>
             </ul>

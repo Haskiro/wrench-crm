@@ -1,6 +1,6 @@
 import { useApi } from '../hooks/api.hook';
 import uuid from 'react-uuid';
-import { ResponseList, Search } from '../interfaces/search.interface';
+import { ResponseList, Search } from '../interfaces/response.interface';
 
 const useApiService = () => {
     const { request, clearError, process, setProcess } = useApi();
@@ -16,9 +16,9 @@ const useApiService = () => {
     const _transformAddress = (address: ResponseList) => {
         return {
             id: uuid(),
-            city: address.data.city_type_full ? address.data.city_type_full + ' ' + address.data.city : null,
-            street: address.data.street_type_full ? address.data.street_type_full + ' ' + address.data.street : null,
-            house: address.data.house_type_full ? address.data.house_type_full + ' ' + address.data.house : null
+            city: address.data.city_type_full ? address.data.city_type_full + ' ' + address.data.city : '',
+            street: address.data.street_type_full ? address.data.street_type_full + ' ' + address.data.street : '',
+            house: address.data.house_type_full ? address.data.house_type_full + ' ' + address.data.house : ''
         }
     }
 

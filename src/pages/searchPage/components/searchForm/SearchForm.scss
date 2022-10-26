@@ -1,0 +1,57 @@
+@import "../../../../styles/variable.scss";
+
+.form {
+    height: 100%;
+    display: flex;
+    gap: 24px;
+
+    &__input {
+        border: 3px solid $main-color;
+        border-radius: 10px;
+        box-sizing: border-box;
+        height: 70px;
+        padding: 23px 24px;
+        font-size: 20px;
+        line-height: 24px;
+        color: $text-color;
+        flex-grow: 2;
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+
+        &:invalid {
+            border-color: red;
+        }
+
+    }
+
+    &__button {
+        background: $main-color;
+        border-radius: 10px;
+        border: none;
+        box-sizing: border-box;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 19px 40px;
+        cursor: pointer;
+
+        & svg {
+            fill: $white;
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    &__text {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 32px;
+        color: $white;
+    }
+
+    &__error {
+        color: red;
+    }
+}

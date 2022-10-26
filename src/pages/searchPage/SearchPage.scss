@@ -1,0 +1,19 @@
+@import "../../styles/variable.scss";
+
+.search {
+
+    &__heading {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 32px;
+        color: $text-color;
+        margin-bottom: 16px;
+    }
+
+    &__text {
+        font-size: 20px;
+        line-height: 24px;
+        color: $text-color;
+        margin-bottom: 24px;
+    }
+}

@@ -86,10 +86,14 @@
     transition: max-height 0.3s ease;
 
     &.active {
-        max-height: 192px;
+        max-height: 200px;
 
         & .dropdown__icon {
             transform: rotateZ(0deg);
+        }
+
+        & .dropdown__list {
+            visibility: visible;
         }
     }
 
@@ -109,6 +113,8 @@
         display: flex;
         flex-direction: column;
         gap: 32px;
+        visibility: hidden;
+        transition: visibility 0.3s ease;
     }
 
     &__item {}

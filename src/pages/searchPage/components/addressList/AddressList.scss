@@ -1,0 +1,41 @@
+@import "../../../../styles/variable.scss";
+
+.address-list {
+    background: $white;
+    box-shadow: 0px 2px 8px rgba(2, 0, 97, 0.25);
+    border-radius: 10px;
+    margin-top: 32px;
+    padding: 24px;
+
+    &__heading {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 32px;
+        color: $text-color;
+        margin-bottom: 16px;
+    }
+
+    &__item {
+        font-size: 20px;
+        line-height: 24px;
+        padding: 16px 0;
+        border-top: 1px solid #D7D7D7;
+        ;
+    }
+
+    &__list {}
+}
+
+.error {
+    margin-top: 32px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 32px;
+    color: $text-color;
+    text-align: center;
+}
+
+.spinner {
+    margin: 32px auto 0px;
+    max-width: 100px;
+}
