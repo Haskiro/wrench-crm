@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Spinner from '@components/spinner';
 import useApiService from '@services/apiService';
 import { AddressListProps } from './AddressList.props';
@@ -28,7 +28,7 @@ const setContent = (
     }
 }
 
-const AddressList = ({ query }: AddressListProps): JSX.Element => {
+const AddressList: FC<AddressListProps> = ({ query }) => {
     const { getAddresses, process, setProcess, clearError } = useApiService();
 
     const [addressList, setAddressList] = useState<AddressItemType[]>();

@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { SearchIcon } from '@assets/icons/icons';
 import { SearchFormProps } from './SearchForm.props';
 import "./SearchForm.scss";
 
-const SearchForm = ({ onChange }: SearchFormProps): JSX.Element => {
+const SearchForm: FC<SearchFormProps> = ({ onChange }): JSX.Element => {
     const [query, setQuery] = useState('');
     const [error, setError] = useState(false);
 

@@ -2,13 +2,13 @@ import "./NavBar.scss";
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { ArrowIcon, CalendarIcon, ExitIcon, FinanceManagmentIcon, HomeIcon, MapIcon, ProfileSettingsIcon, SearchIcon, SettingsIcon, TablesIcon, VidgetsIcon } from '@assets/icons/icons';
-import { useRef } from 'react';
+import { FC, useRef } from 'react';
 
 interface NavBarProps {
     activeClass: string;
 }
 
-const NavBar = ({ activeClass }: NavBarProps): JSX.Element => {
+const NavBar: FC<NavBarProps> = ({ activeClass }) => {
     const ref = useRef<HTMLDivElement | null>();
 
     const toggleDropdown = (): void => {

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { LogoIcon, PersonIcon } from '@assets/icons/icons';
 import "./Header.scss";
+import { FC } from 'react';
 
-const Header = (): JSX.Element => {
+const Header: FC = () => {
     return (
         <header className='header'>
             <div className='header__body container'>

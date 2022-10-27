@@ -3,9 +3,9 @@ import NavBar from '@components/navBar';
 import "./PageLayout.scss";
 import { Outlet } from 'react-router-dom';
 import BurgerMenu from '@components/burgerMenu';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
-const PageLayout = (): JSX.Element => {
+const PageLayout: FC = () => {
     const [activeClass, setActiveClass] = useState('');
 
     const onChangeClass = () => {

@@ -1,6 +1,7 @@
+import { FC } from 'react';
 import "./MainPage.scss";
 
-const MainPage = (): JSX.Element => {
+const MainPage: FC = () => {
 
     return (
         <div className='articles'>

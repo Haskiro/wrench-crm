@@ -1,7 +1,11 @@
-import { useRef } from 'react';
+import { FC, useRef } from 'react';
 import "./BurgerMenu.scss";
 
-const BurgerMenu = ({ onChangeClass }: { onChangeClass: () => void }) => {
+interface BurgerMenuProps {
+    onChangeClass: () => void
+}
+
+const BurgerMenu: FC<BurgerMenuProps> = ({ onChangeClass }) => {
     const ref = useRef<HTMLButtonElement | null>();
 
     const onButtonClick = () => {

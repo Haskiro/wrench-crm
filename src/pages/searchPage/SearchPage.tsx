@@ -1,21 +1,24 @@
 import "./SearchPage.scss";
 import SearchForm from './components/searchForm';
 import AddressList from './components/addressList';
-import { useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 
-const SearchPage = (): JSX.Element => {
+const SearchPage: FC = () => {
     const [query, setQuery] = useState('');
 
-    const onChangeQuery = (query: string) => {
+    const onChangeQuery = useCallback((query: string) => {
         setQuery(query);
-    }
+        // eslint-disable-next-line
+    }, [query])
 
     return (
         <div className='search'>
             <p className="search__heading">Поиск адресов</p>
             <p className="search__text">Введите интересующий вас адрес</p>
             <SearchForm onChange={onChangeQuery} />
-            <AddressList query={query} />
+            <div className='search__content'>
+                <AddressList query={query} />
+            </div>
         </div>
     )
 }
