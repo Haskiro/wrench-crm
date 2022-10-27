@@ -1,4 +1,4 @@
-@import "../../styles/variable.scss";
+@import "@styles/variable.scss";
 
 .header {
     background-color: $main-color;
@@ -11,21 +11,48 @@
     &__body {
         display: flex;
         justify-content: space-between;
+        gap: 20px;
         padding: 16px 32px;
+
+        @media (max-width: 992px) {
+            padding: 22px 32px;
+        }
+
+        @media (max-width: 992px) {
+            padding: 22px 15px;
+        }
+
     }
 
     &__block {
         display: flex;
         gap: 24px;
         align-items: center;
+
+        @media (max-width: 567px) {
+            gap: 10px;
+        }
     }
 
-    &__icon {}
+    &__icon svg {
+        width: 48px;
+        height: 48px;
+
+        @media (max-width: 992px) {
+            width: 36px;
+            height: 36px;
+        }
+    }
 
     &__text {
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
         color: $white;
+
+        @media (max-width: 992px) {
+            font-size: 15px;
+            line-height: 18px;
+        }
     }
 }

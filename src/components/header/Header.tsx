@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { LogoIcon, PersonIcon } from '../../assets/icons/icons';
+import { LogoIcon, PersonIcon } from '@assets/icons/icons';
 import "./Header.scss";
 
 const Header = (): JSX.Element => {

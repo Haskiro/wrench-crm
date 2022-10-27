@@ -1,6 +1,6 @@
 import { useApi } from '../hooks/api.hook';
 import uuid from 'react-uuid';
-import { ResponseList, Search } from '../interfaces/response.interface';
+import { ResponseList, Search } from '@interfaces/response.interface';
 
 const useApiService = () => {
     const { request, clearError, process, setProcess } = useApi();

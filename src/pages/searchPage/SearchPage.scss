@@ -1,6 +1,11 @@
-@import "../../styles/variable.scss";
+@import "@styles/variable.scss";
 
 .search {
+    padding: 0px 32px;
+
+    @media (max-width: 768px) {
+        padding: 0px 15px;
+    }
 
     &__heading {
         font-weight: 700;
@@ -8,6 +13,11 @@
         line-height: 32px;
         color: $text-color;
         margin-bottom: 16px;
+
+        @media (max-width: 992px) {
+            font-size: 20px;
+            line-height: 35px;
+        }
     }
 
     &__text {
@@ -15,5 +25,10 @@
         line-height: 24px;
         color: $text-color;
         margin-bottom: 24px;
+
+        @media (max-width: 992px) {
+            font-size: 15px;
+            line-height: 18px;
+        }
     }
 }

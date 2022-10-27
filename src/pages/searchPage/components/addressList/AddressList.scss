@@ -1,4 +1,4 @@
-@import "../../../../styles/variable.scss";
+@import "@styles/variable.scss";
 
 .address-list {
     background: $white;
@@ -13,6 +13,11 @@
         line-height: 32px;
         color: $text-color;
         margin-bottom: 16px;
+
+        @media (max-width: 992px) {
+            font-size: 20px;
+            line-height: 25px;
+        }
     }
 
     &__item {
@@ -20,7 +25,11 @@
         line-height: 24px;
         padding: 16px 0;
         border-top: 1px solid #D7D7D7;
-        ;
+
+        @media (max-width: 992px) {
+            font-size: 15px;
+            line-height: 18px;
+        }
     }
 
     &__list {}

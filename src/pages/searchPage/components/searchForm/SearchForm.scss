@@ -1,9 +1,17 @@
-@import "../../../../styles/variable.scss";
+@import "@styles/variable.scss";
 
 .form {
     height: 100%;
     display: flex;
     gap: 24px;
+
+    @media (max-width: 992px) {
+        gap: 18px;
+    }
+
+    @media (max-width: 768px) {
+        gap: 5px;
+    }
 
     &__input {
         border: 3px solid $main-color;
@@ -15,13 +23,22 @@
         line-height: 24px;
         color: $text-color;
         flex-grow: 2;
+        text-overflow: ellipsis;
+
+        @media (max-width: 992px) {
+            height: 51px;
+            padding: 23px 24px;
+            font-size: 15px;
+            line-height: 18px;
+        }
+
+        @media (max-width: 768px) {
+            height: 51px;
+            padding: 23px 5px;
+        }
 
         &::placeholder {
             color: $placeholder-color;
-        }
-
-        &:invalid {
-            border-color: red;
         }
 
     }
@@ -37,10 +54,31 @@
         padding: 19px 40px;
         cursor: pointer;
 
+        @media (max-width: 992px) {
+            padding: 14px 30px;
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            & p {
+                display: none;
+            }
+        }
+
+        @media (max-width: 567px) {
+            padding: 14px 20px;
+        }
+
+
         & svg {
             fill: $white;
             width: 32px;
             height: 32px;
+
+            @media (max-width: 992px) {
+                width: 25px;
+                height: 25px;
+            }
         }
     }
 
@@ -49,6 +87,11 @@
         font-size: 26px;
         line-height: 32px;
         color: $white;
+
+        @media (max-width: 992px) {
+            font-size: 20px;
+            line-height: 25px;
+        }
     }
 
     &__error {

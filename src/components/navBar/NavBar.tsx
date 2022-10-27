@@ -1,10 +1,14 @@
 import "./NavBar.scss";
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { ArrowIcon, CalendarIcon, ExitIcon, FinanceManagmentIcon, HomeIcon, MapIcon, ProfileSettingsIcon, SearchIcon, SettingsIcon, TablesIcon, VidgetsIcon } from '../../assets/icons/icons';
+import { ArrowIcon, CalendarIcon, ExitIcon, FinanceManagmentIcon, HomeIcon, MapIcon, ProfileSettingsIcon, SearchIcon, SettingsIcon, TablesIcon, VidgetsIcon } from '@assets/icons/icons';
 import { useRef } from 'react';
 
-const NavBar = (): JSX.Element => {
+interface NavBarProps {
+    activeClass: string;
+}
+
+const NavBar = ({ activeClass }: NavBarProps): JSX.Element => {
     const ref = useRef<HTMLDivElement | null>();
 
     const toggleDropdown = (): void => {
@@ -12,7 +16,7 @@ const NavBar = (): JSX.Element => {
     }
 
     return (
-        <nav className='nav'>
+        <nav className={classNames("nav", activeClass)}>
             <p className="nav__title">Меню</p>
             <ul className="nav__list">
                 <li className="nav__item">
@@ -185,6 +189,7 @@ const NavBar = (): JSX.Element => {
                 </li>
             </ul>
         </nav>
+
     )
 }
 

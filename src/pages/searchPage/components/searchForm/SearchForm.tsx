@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SearchIcon } from '../../../../assets/icons/icons';
+import { SearchIcon } from '@assets/icons/icons';
 import { SearchFormProps } from './SearchForm.props';
 import "./SearchForm.scss";
 

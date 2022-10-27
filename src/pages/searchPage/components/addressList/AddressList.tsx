@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Spinner from '../../../../components/spinner';
-import useApiService from '../../../../services/apiService';
+import Spinner from '@components/spinner';
+import useApiService from '@services/apiService';
 import { AddressListProps } from './AddressList.props';
 import "./AddressList.scss";
 
@@ -9,6 +9,23 @@ interface AddressItemType {
     city: string,
     street: string,
     house: string
+}
+
+const setContent = (
+    process: string,
+    addressList: AddressItemType[] | undefined,
+    renderItems: (addressList: AddressItemType[]
+    ) => JSX.Element) => {
+    switch (process) {
+        case "loading":
+            return <div className='spinner'><Spinner /></div>;
+        case "confirmed":
+            return (addressList && addressList.length > 0) ? renderItems(addressList) : null;
+        case "error":
+            return <h2 className='error'>Error</h2>
+        default:
+            break;
+    }
 }
 
 const AddressList = ({ query }: AddressListProps): JSX.Element => {
@@ -60,20 +77,7 @@ const AddressList = ({ query }: AddressListProps): JSX.Element => {
         );
     }
 
-    let content;
-    switch (process) {
-        case "loading":
-            content = <div className='spinner'><Spinner /></div>;
-            break;
-        case "confirmed":
-            content = (addressList && addressList.length > 0) ? renderItems(addressList) : null;
-            break;
-        case "error":
-            content = <h2 className='error'>Error</h2>
-            break;
-        default:
-            break;
-    }
+    const content = setContent(process, addressList, renderItems);
 
 
     return (

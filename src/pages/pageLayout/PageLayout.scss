@@ -1,11 +1,44 @@
+@import "@styles/variable.scss";
+
 .main {
     padding-top: 80px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 240px 1fr;
+    }
+
+    @media (max-width: 768px) {
+        display: block;
+        position: relative;
+    }
+
 
     &__content {
         height: calc(100vh - 80px);
         overflow: auto;
-        padding: 32px;
-        flex-grow: 2;
+        padding: 32px 0px 0px;
+        position: relative;
     }
+
+    &__burger {
+        display: none;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: 11;
+
+        & svg {
+            width: 60px;
+            height: 60px;
+        }
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+
+    }
+
+
 }

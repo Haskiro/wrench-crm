@@ -1,0 +1,57 @@
+@import "@styles/variable.scss";
+
+.articles {
+
+    &__heading {
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 32px;
+        color: $text-color;
+        margin-bottom: 16px;
+        padding: 0px 32px;
+
+        @media (max-width: 992px) {
+            font-size: 20px;
+            line-height: 35px;
+        }
+
+        @media (max-width: 768px) {
+            padding: 0px 15px;
+        }
+    }
+
+    &__text {
+        font-size: 20px;
+        line-height: 24px;
+        color: $text-color;
+        margin-bottom: 24px;
+        padding: 0px 32px;
+
+        @media (max-width: 992px) {
+            font-size: 15px;
+            line-height: 18px;
+        }
+
+        @media (max-width: 768px) {
+            padding: 0px 15px;
+        }
+    }
+
+    &__content {
+        color: $text-color;
+        overflow: auto;
+        max-height: calc(100vh - 208px);
+        scrollbar-width: 6px;
+        scrollbar-color: $main-color;
+
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $main-color;
+            border-radius: 5px;
+        }
+    }
+}
