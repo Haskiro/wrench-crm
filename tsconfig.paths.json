@@ -19,6 +19,12 @@
             ],
             "@interfaces/*": [
                 "src/interfaces/*"
+            ],
+            "@store": [
+                "src/store/index.ts"
+            ],
+            "@api/*": [
+                "src/api/*"
             ]
         }
     }

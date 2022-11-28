@@ -1,8 +1,10 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useMemo } from 'react';
 import Spinner from '@components/spinner';
-import useApiService from '@services/apiService';
 import { AddressListProps } from './AddressList.props';
 import "./AddressList.scss";
+import { useGetAddressesByStringQuery } from '@api/apiSlice';
+import { ResponseList } from '@interfaces/response.interface';
+import { nanoid } from '@reduxjs/toolkit';
 
 interface AddressItemType {
     id: string,
@@ -11,44 +13,27 @@ interface AddressItemType {
     house: string
 }
 
-const setContent = (
-    process: string,
-    addressList: AddressItemType[] | undefined,
-    renderItems: (addressList: AddressItemType[]
-    ) => JSX.Element) => {
-    switch (process) {
-        case "loading":
-            return <div className='spinner'><Spinner /></div>;
-        case "confirmed":
-            return (addressList && addressList.length > 0) ? renderItems(addressList) : null;
-        case "error":
-            return <h2 className='error'>Error</h2>
-        default:
-            break;
-    }
-}
-
 const AddressList: FC<AddressListProps> = ({ query }) => {
-    const { getAddresses, process, setProcess, clearError } = useApiService();
 
-    const [addressList, setAddressList] = useState<AddressItemType[]>();
+    const { data: response = [],
+        isFetching,
+        isLoading,
+        isSuccess,
+        isError
+    } = useGetAddressesByStringQuery(query)
 
-    const onDataLoaded = (data: AddressItemType[]) => {
-        setAddressList(data);
-        setProcess("confirmed");
+    const transformAddress = (address: ResponseList) => {
+        return {
+            id: nanoid(),
+            city: address.data.city_type_full ? address.data.city_type_full + ' ' + address.data.city : '',
+            street: address.data.street_type_full ? address.data.street_type_full + ' ' + address.data.street : '',
+            house: address.data.house_type_full ? address.data.house_type_full + ' ' + address.data.house : ''
+        }
     }
 
-    const request = (query: string) => {
-        getAddresses(query)
-            .then(onDataLoaded)
-            .catch(() => console.log('Error'));
-    }
-
-    useEffect(() => {
-        clearError();
-        request(query);
-        // eslint-disable-next-line
-    }, [query])
+    const addressList = useMemo(() => {
+        return response.suggestions?.map(transformAddress);
+    }, [response, query])
 
     const renderItems = (addressList: AddressItemType[]): (JSX.Element) => {
         const content = addressList?.map(item => {
@@ -77,12 +62,12 @@ const AddressList: FC<AddressListProps> = ({ query }) => {
         );
     }
 
-    const content = setContent(process, addressList, renderItems);
-
 
     return (
         <>
-            {content}
+            {isLoading || isFetching ? <div className='spinner'><Spinner /></div> : null}
+            {isSuccess && addressList.length > 0 ? renderItems(addressList) : null}
+            {isError ? <h2 className='error'>Error</h2> : null}
         </>
     )
 }

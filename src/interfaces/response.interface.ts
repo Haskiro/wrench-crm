@@ -50,8 +50,8 @@ export interface ResponseItem {
     house_kladr_id: any;
     house_cadnum: any;
     house_type: any;
-    house_type_full: any;
-    house: any;
+    house_type_full: string;
+    house: string;
     block_type: any;
     block_type_full: any;
     block: any;
