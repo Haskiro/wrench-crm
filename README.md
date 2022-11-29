@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Wrench CRM
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple crm with no much pages. Adaptive and responsive design
 
-## Available Scripts
+**Client:**
 
-In the project directory, you can run:
+-  React 18.2
+-  Redux Toolkit 1.9.0
+-  RTK Query
+-  TypeScript
+-  SCSS
 
-### `npm start`
+**API:**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-  [Dadata](https://dadata.ru/api/suggest/address/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## About project:
 
-### `npm test`
+**Home**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-  List of last news. Links work.
 
-### `npm run build`
+**Address search**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  Search input with validation: at least 3 chars
+-  List of found addresses, typos corrected
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Menu**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-  _Settings_ item opens and closes on click
+-  _Home_ button leads to the news page and opens by default when the project is launched
+-  _Address Search_ button leads to the address search page
 
-### `npm run eject`
+**Url routes**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-  _/_ - main page with news
+-  _/address_ - address search page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Other**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-  Adaptive and responsive design up to 320px screen width
+-  Sidebar is hidden if resolution <= 768px
+-  The block with navigation and the block with content scrolls independently of each other
+(if there is more content than fits into the screen height), while the header is fixed on the top of the screen
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Quick start
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run the project, you need to install all the dependencies with the command:
+```
+npm install
+```
+After installing all the dependencies, the application is launched with the command:
+```
+npm start
+```
